@@ -161,3 +161,105 @@ for val in map.values() :
     print(val)
 for key, val  in myMap.items() :
     
+# TUples are similar to array but are immutable in python 
+tup = (1,2,3)
+
+can't modify them
+tup[0] = 2 # this will give an error
+
+You are mainly using tuuple  for  a key to hashman / set because they are immutable and hashable in python  
+mymap = {(1,2) : 3} # this is valid because the key is a tuuple and tuuple is immutable and hashable in python  
+mySet  = set((1,2)) # this is valid because the key is a tuuple and tuuple is immutable and hashable in python  
+
+my[[1,2]] = 3 # this is invalid because the key is a list and list is mutable and unhashable in python  
+
+#Heaps
+# Heap is a binary tree where the parent node is smaller than the child node in min heap and parent node is greater than the child node in max heap
+import heapq
+under the hood heapq is implemented using a list in python and it is a min heap by default
+minHeap = [3, 1, 4, 1, 5]
+heapq.heapify(minHeap)
+heapq.heappush(minheap, 2)
+heapq.heappop(minHeap) # this will pop the minimum element from the heap
+
+# minimum values is always at the index 0 of the heap
+print(mineHeap[0])
+while(len(minHeap) > 0) :
+    print(heapq.heappop(minHeap)) # this will pop the minimum element from the heap
+
+# python does not have a max heap by default but we can implement it using a min heap by negating the values
+maxHeap = []
+for x in [3, 1, 4, 1, 5]:
+    heapq.heappush(maxHeap, -1 * x)
+while maxHeap:
+    print(-1 * heapq.heappop(maxHeap))
+
+# Functions
+# Funcions are first class citizens in python, we can pass them as arguments to other functions and return them from other functions
+# use def key workword, name the function , 
+and then we pass in some parameter just like conditions
+ and loops we use : after the declaration of the function and
+  then we write the body of the function
+def myFunct(int a, int  c):
+    return math.sqrt(a * a + c * c)
+
+one function property that is mostly used in coding interview is inner funtion
+def outerFunct(int a, int b):
+    def innerFunct(int c):
+        return a + b + c
+    return innerFunct
+print(outerFunct(1, 2)(3)) # this will print 6 because the inner function is called with the argument 3 and the outer function is called with the arguments 1 and 2
+in graph it is very useful to use inner function because we can use the outer function variables in the inner function without passing them as arguments to the inner function
+# graph example
+def graphDFS(int node, int parent):
+    def dfs(int node, int parent):
+        for neighbor in graph[node]:
+            if neighbor != parent:
+                dfs(neighbor, node)
+    dfs(node, parent)
+graphDFS(0, -1) # this will start the dfs from node 0 and parent -1
+
+
+# can modify the objects but  not reassign variable 
+# unless using non local keyword
+def double(arr, val):
+    for i in range(len(arr)):
+        arr[i] *= 2
+    val *= 2
+    # this will not modify the val variable because it is a local variable and it is not passed by reference
+    nonlocal val # this will modify the val variable because it is a nonlocal variable and it is passed by reference
+    val *= 2
+
+
+# class
+Class Are also pretty concise but a bit more limited as compared to other languages like java and c++
+ but they are still pretty powerful
+
+ class myClass:
+    #construction of the class is done using __init__ method
+    # self is passed to every method of class and it is used to access the instance variables of the class
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+    def myMethod(self):
+        return self.a + self.b
+    # call other memeber function of the class using self keyword
+    def myMethod2(self):
+        return self.myMethod() * 2
+
+# to create member variable we use self keyword and to access the member variable we use self keyword as well
+
+# here is the table that comapre python with other languages like java and c++
+#create the table that compare python with other languages like java and c++
+features = ["Syntax", "Data Types", "Memory Management", "Performance", "Community Support"]
+python = ["Simple and readable", "Dynamically typed", "Automatic memory management", "Moderate performance", "Large community"]
+
+java = ["Verbose and strict", "Statically typed", "Manual memory management", "High performance", "Large community"]
+cpp = ["Complex and strict", "Statically typed", "Manual memory management", "High performance", "Large community"]
+c = ["Complex and strict", "Statically typed", "Manual memory management", "High performance", "Large community"]
+
+# oops concept compare python with other languages like java and c++
+# compare various ways to implement oops concept in python with other languages like java and c++
+
+python is dyanamically typed and interpreted language, while java and c++ are statically typed and compiled languages. Python supports multiple inheritance, while java supports single inheritance and c++ supports multiple inheritance. Python uses duck typing, while java and c++ use static typing. Python has a garbage collector, while java has a garbage collector and c++ does not have a garbage collector. Python has a large standard library, while java has a large standard library and c++ has a small standard library.
+pythone is interpreteted languge, users code converted to bytecode and then executed by the python interpreter, while java is compiled to bytecode and then executed by the java virtual machine and c++ is compiled to machine code and then executed by the operating system. Python is dynamically typed, while java and c++ are statically typed. Python supports multiple inheritance, while java supports single inheritance and c++ supports multiple inheritance. Python uses duck typing, while java and c++ use static typing. Python has a garbage collector, while java has a garbage collector and c++ does not have a garbage collector. Python has a large standard library, while java has a large standard library and c++ has a small standard library.
